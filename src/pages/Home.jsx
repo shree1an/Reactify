@@ -5,7 +5,6 @@ import { searchMovies, getPopularMovies } from "../services/api";
 
 import MovieCard from "../components/Moviecard.jsx";
 
-
 function Home() {
 
     const [searchQuery, setSearchQuery] = useState("");
@@ -27,7 +26,6 @@ function Home() {
                 setLoading(false);
             }
         }
-
         loadPopularMovies();
     }, [])
 
@@ -35,7 +33,6 @@ function Home() {
         e.preventDefault();
         if (!searchQuery.trim()) return
         if (loading) return
-
 
         setLoading(true);
         try {
@@ -48,10 +45,7 @@ function Home() {
         } finally {
             setLoading(false);
         }
-
-
-
-
+        
         setSearchQuery("")
     };
 
@@ -75,7 +69,6 @@ function Home() {
                     ))}
                 </div>
             )}
-
         </div>
     );
 
