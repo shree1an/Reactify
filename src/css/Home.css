@@ -1,5 +1,5 @@
 .home {
-  padding: 2rem 0;
+  padding: 2rem 0rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -11,53 +11,126 @@
   gap: 1rem;
   padding: 0 1rem;
   box-sizing: border-box;
+  background: #222;                
+  border-radius: 8px;             
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  padding: 0.5rem 1rem;
 }
 
 .search-input {
   flex: 1;
   padding: 0.75rem 1rem;
   border: none;
-  border-radius: 4px;
-  background-color: #333;
+  border-radius: 6px;
+  background-color: #121212;
   color: white;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  box-shadow: inset 0 0 6px rgba(255,255,255,0.1);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+  font-weight: 300;
 }
 
 .search-input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #666;
+  background-color: #1a1a1a;
+  box-shadow: 0 0 8px 2px rgb(37, 110, 199);
 }
 
 .search-button {
   padding: 0.75rem 1.5rem;
-  background-color: #e50914;
+  background: linear-gradient(45deg, #0977e5, #1d6db8);
   color: white;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: background-color 0.2s;
-  white-space: nowrap;
+  border-radius: 6px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  box-shadow: 0 3px 6px rgba(9, 90, 229, 0.6);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: none;
 }
 
 .search-button:hover {
-  background-color: #f40612;
+  background: linear-gradient(45deg, #067df4, #1f79d3);
+  box-shadow: 0 6px 12px rgba(6, 125, 244, 0.8);
 }
 
-
-@media (max-width: 639px) {
-  .home {
-    padding: 1rem 0;
-  }
-
-  .search-form {
-    margin-bottom: 1rem;
-  }
-}
 
 .movies-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* max 7 columns, each at least 200px, but flexible to fill space */
+  grid-template-columns: repeat(7, minmax(200px, 1fr));
   gap: 1.5rem;
   padding: 1rem;
   width: 100%;
   box-sizing: border-box;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(200px, 1fr)); /* max 7 cols on large screens */
+  gap: 1.5rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Large desktops and wide screens */
+@media (max-width: 1400px) {
+  .movies-grid {
+    grid-template-columns: repeat(6, minmax(190px, 1fr));
+  }
+}
+
+/* Medium desktops */
+@media (max-width: 1200px) {
+  .movies-grid {
+    grid-template-columns: repeat(5, minmax(180px, 1fr));
+  }
+}
+
+/* Smaller laptops */
+@media (max-width: 1024px) {
+  .movies-grid {
+    grid-template-columns: repeat(4, minmax(170px, 1fr));
+  }
+}
+
+/* Tablets landscape */
+@media (max-width: 900px) {
+  .movies-grid {
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+  }
+}
+
+/* Tablets portrait */
+@media (max-width: 768px) {
+  .movies-grid {
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+  }
+}
+
+/* Large phones */
+@media (max-width: 600px) {
+  .movies-grid {
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .movies-grid {
+    grid-template-columns: repeat(1, minmax(120px, 1fr));
+  }
+}
+
+
+.no-results {
+  font-size: 1.2rem;
+  color: #aaa;
+  text-align: center;
+  margin-top: 2rem;
 }
